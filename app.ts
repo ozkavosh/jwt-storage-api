@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import userRouter from './routers/userRouter';
+import taskRouter from './routers/taskRouter';
 
 const app = express();
 
@@ -12,5 +13,6 @@ app.use((req, res, next) => {
     return next();
 })
 app.use('/api/auth', userRouter);
+app.use('/api/tasks', taskRouter);
 
 export default app;

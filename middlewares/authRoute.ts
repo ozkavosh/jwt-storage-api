@@ -11,6 +11,7 @@ const authRoute = (req: Request, res: Response, next: NextFunction) => {
   jwt.verify(token, (process.env.TOKEN_SECRET as Secret), (err: any, user: any) => {
     if (err) return res.status(400).json({ error: "Invalid token" });
 
+    //@ts-ignore
     req.user = user;
 
     next();

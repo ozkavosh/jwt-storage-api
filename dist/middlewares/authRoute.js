@@ -12,6 +12,7 @@ const authRoute = (req, res, next) => {
     jsonwebtoken_1.default.verify(token, process.env.TOKEN_SECRET, (err, user) => {
         if (err)
             return res.status(400).json({ error: "Invalid token" });
+        //@ts-ignore
         req.user = user;
         next();
     });

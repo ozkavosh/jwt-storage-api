@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const userRouter_1 = __importDefault(require("./routers/userRouter"));
+const taskRouter_1 = __importDefault(require("./routers/taskRouter"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
@@ -15,4 +16,5 @@ app.use((req, res, next) => {
     return next();
 });
 app.use('/api/auth', userRouter_1.default);
+app.use('/api/tasks', taskRouter_1.default);
 exports.default = app;
